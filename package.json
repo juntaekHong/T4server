@@ -1,0 +1,27 @@
+{
+  "name": "t4server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyoVeemo/T4server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyoVeemo/T4server/issues"
+  },
+  "homepage": "https://github.com/HyoVeemo/T4server#readme",
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.7.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

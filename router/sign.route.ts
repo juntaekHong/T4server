@@ -4,7 +4,7 @@ import {userService} from '../service/user.service'
 class SignRoute {
     public signRouter: express.Router = express.Router();
     constructor(){
-        this.signRouter.get('/signUp',async function(req,res,next){
+        this.signRouter.post('/signUp',async function(req,res,next){
             const userId = req.body.userId;
             const userPw = req.body.userPw;
             

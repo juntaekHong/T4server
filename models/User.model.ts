@@ -1,4 +1,4 @@
-import {Table, Column, Model,CreatedAt,UpdatedAt, HasMany, PrimaryKey } from 'sequelize-typescript';
+import {Table, Column, Model,CreatedAt,UpdatedAt, HasMany, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 
 @Table({
     timestamps: true,
@@ -6,11 +6,15 @@ import {Table, Column, Model,CreatedAt,UpdatedAt, HasMany, PrimaryKey } from 'se
 export default class User extends Model <User>{
     
     @PrimaryKey
+    @AutoIncrement
     @Column
-    userId: string;
+    userId: number;
 
     @Column
-    password: string;
+    userpw: string;
+
+    @Column
+    userName: string;
 
     @CreatedAt
     creationDate: Date;

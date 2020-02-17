@@ -1,8 +1,8 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
-import { is } from 'bluebird';
 import cookieParser from 'cookie-parser';
 import { indexRoute } from './router/index.route'
+import { signRoute } from './router/sign.route'
 import { db } from './db'
 export class Server {
 
@@ -12,15 +12,16 @@ export class Server {
 
     constructor(){
         this.app = express();
-        this.port = process.env.PORT || 3000;
-        this.env = process.env.NODE_ENV === 'production'? true:false;
+        //this.env = process.env.NODE_ENV === 'production'? true:false;
 
         this.initMiddlewares();
-
+        this.app.use(indexRoute.IndexRouter);
+        this.app.use(signRoute.signRouter);
         this.app.get('/console',function(req,res){
-            res.send('server is tunning')
+            res.send(`server is tunning on port${this.port}`)
         });
-        db.sequelize.sync();
+        
+        //db.sequelize.sync({force: true});
     }
 
     private initMiddlewares(){
@@ -28,7 +29,4 @@ export class Server {
             this.app.use(bodyParser.json());
     }
 
-    private initRouter(){
-        this.app.use(indexRoute.IndexRouter);
-    }
 }
